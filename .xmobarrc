@@ -1,0 +1,20 @@
+Config {
+    font = "xft:Ubuntu Mono:size=10",
+    bgColor = "#000000",
+    fgColor = "#ffffff",
+    position = TopW L 100,
+    lowerOnStart = True,
+    commands = [
+        Run CoreTemp ["-t", "<core0> <core1> <core2> <core3>", "-L", "40", "-H", "70", "-l", "#CEFFAC", "-n", "#FFFFCC", "-h", "#FFB6B0"] 25,
+        Run Weather "CYYC" ["-t","<tempC>C <skyCondition>","-L","0","-H","18","-n","#CEFFAC","-h","#FFB6B0","-l","#96CBFE"] 36000,
+        Run MultiCpu ["-t","CPU:<total0><total1><total2><total3>","-L","30","-H","60","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC","-w","3"] 25,
+        Run Memory ["-t","Mem: <usedratio>%","-H","8192","-L","4096","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 25,
+        Run Swap ["-t","Swap: <usedratio>%","-H","1024","-L","512","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC"] 25,
+        Run Network "enp8s1" ["-t","Net: <rx>, <tx>","-H","200","-L","10","-h","#FFB6B0","-l","#CEFFAC","-n","#FFFFCC", "-w", "3"] 25,
+        Run Date "%a %F %H:%M:%S" "date" 10,
+        Run StdinReader
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ %enp8s1%  %multicpu%  %coretemp%  %memory%  %swap%  <fc=#FFFFCC>%date%</fc>  %CYYC%"
+}
