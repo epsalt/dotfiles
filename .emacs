@@ -19,7 +19,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator ess base16-theme auto-complete))))
+    (writegood-mode pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator ess base16-theme auto-complete))))
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -140,3 +140,9 @@
 (when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))
 
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
