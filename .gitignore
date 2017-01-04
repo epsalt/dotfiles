@@ -3,3 +3,4 @@
 *.o
 xmonad-x86_64-linux
 *~
+.gitconfig-local

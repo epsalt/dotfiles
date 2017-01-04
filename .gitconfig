@@ -1,0 +1,6 @@
+[include]
+        path = ~/.gitconfig-local
+[push]
+	default = upstream
+[core]
+	editor = emacsclient -a=emacs-snapshot
