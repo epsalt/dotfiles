@@ -25,7 +25,9 @@ myLayout = avoidStruts $
              full = renamed [Replace "full"] $ spacing 15 $ Full
              maxFull = renamed [Replace "max"] $ noBorders Full
 
-myKeys = [ ((mod1Mask, xK_q), spawn "chromium-browser")]
+myKeys = [ ((mod1Mask, xK_q), spawn "chromium-browser")
+         , ((mod1Mask, xK_a), spawn "emacs-snapshot")
+         ]
 
 myBorderWidth :: Dimension
 myBorderWidth = 2
