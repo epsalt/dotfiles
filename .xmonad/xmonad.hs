@@ -18,12 +18,12 @@ myLayout = avoidStruts $
            threeCol |||
            full |||
            maxFull
-           
+
            where
              tiled = renamed [Replace "tiled"] $ spacing 15 $ Tall 1 (3/100) (1/2)
              threeCol = renamed [Replace "3col"] $ spacing 15 $ ThreeCol 1 (3/100) (1/3)
              full = renamed [Replace "full"] $ spacing 15 $ Full
-             maxFull = renamed [Replace "max"] $ noBorders Full
+             maxFull = renamed [Replace "max"] $ noBorders $ Full
 
 myKeys = [ ((mod1Mask, xK_q), spawn "chromium-browser")
          , ((mod1Mask, xK_a), spawn "emacs-snapshot")
