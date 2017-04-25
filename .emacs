@@ -19,7 +19,10 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (writegood-mode pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator ess base16-theme auto-complete))))
+    (exec-path-from-shell html-check-frag writegood-mode
+ pdf-tools dictionary magit markdown-mode haskell-mode js2-mode
+ fill-column-indicator ess base16-theme auto-complete)))
+ '(pdf-misc-print-programm "/usr/bin/gtklp"))
 
 (require 'auto-complete)
 (global-auto-complete-mode t)
@@ -59,6 +62,12 @@
       (setq x-meta-keysym 'super)
       (setq x-super-keysym 'meta)))
 
+;; Dired (from http://ergoemacs.org/emacs/emacs_dired_tips.html)
+
+(defun dired-mode-setup ()
+  (dired-hide-details-mode 1))
+(add-hook 'dired-mode-hook 'dired-mode-setup)
+
 ;; Appearence
 
 (setq initial-scratch-message nil)
@@ -83,6 +92,10 @@
 
 (require 'fringe)
 (fringe-mode 30)
+
+;; Can't get pdf-tools to compile on MacOS
+(if (eq system-type 'gnu/linux)
+    (pdf-tools-install))
 
 ;; visible bell is fucked up in osx el capitan, disabled for now
 (setq visible-bell nil) ; default
@@ -113,10 +126,13 @@
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
-;; Javascript
+;; Javascript / Web
 
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+
+(require 'html-check-frag)
+(add-hook 'html-mode-hook (lambda () (html-check-frag-mode 1)))
 
 ;; ESS
 
