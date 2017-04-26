@@ -82,10 +82,10 @@
     (load-theme 'base16-tomorrow-night t)
   nil)
 
-(dolist (face '(fringe vertical-border))
-  (set-face-attribute face nil
-                      :foreground (face-foreground 'default)
-                      :background (face-background 'default)))
+;;fringe stuff
+(set-face-attribute 'fringe nil
+                    :foreground (face-foreground 'default)
+                    :background (face-background 'default))
 
 (require 'tool-bar)
 (tool-bar-mode -1)
