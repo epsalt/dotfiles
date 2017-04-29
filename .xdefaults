@@ -44,8 +44,8 @@ URxvt.cursorUnderline:      false
 URxvt.pointerBlank:         true
 
 ! Tabs
-! URxvt.tabbed.autohide:      yes
-! URxvt.tabbed.new-button:    false
+URxvt.tabbed.autohide:      yes
+URxvt.tabbed.new-button:    false
 URxvt.tabbed.tabbar-fg:     -2
 URxvt.tabbed.tabbar-bg:     -1
 URxvt.tabbed.tab-fg:        -2
