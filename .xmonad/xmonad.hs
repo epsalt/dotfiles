@@ -39,7 +39,7 @@ myTerminal = "urxvt"
 
 main = do
     spawn "feh --bg-scale ~/.xmonad/hk.jpg"
-    xmproc <- spawnPipe "/home/epsalt/.cabal/bin/xmobar /home/epsalt/.xmobarrc"
+    xmproc <- spawnPipe "/usr/bin/xmobar /home/epsalt/.xmobarrc"
     xmonad $ defaultConfig {
       manageHook = manageDocks <+> manageHook defaultConfig,
       handleEventHook = docksEventHook <+> handleEventHook defaultConfig,
