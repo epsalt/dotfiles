@@ -59,8 +59,8 @@
       (setq mac-command-modifier 'meta)))
 (if (eq system-type 'gnu/linux)
     (progn
-      (setq x-meta-keysym 'super)
-      (setq x-super-keysym 'meta)))
+      (setq x-meta-keysym 'meta)
+      (setq x-super-keysym 'super)))
 
 ;; Dired (from http://ergoemacs.org/emacs/emacs_dired_tips.html)
 

@@ -41,6 +41,7 @@ main = do
     spawn "feh --bg-scale ~/.xmonad/hk.jpg"
     xmproc <- spawnPipe "/usr/bin/xmobar /home/epsalt/.xmobarrc"
     xmonad $ defaultConfig {
+      modMask = mod4Mask,
       manageHook = manageDocks <+> manageHook defaultConfig,
       handleEventHook = docksEventHook <+> handleEventHook defaultConfig,
       layoutHook = myLayout,
