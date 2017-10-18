@@ -19,13 +19,10 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (exec-path-from-shell html-check-frag writegood-mode
- pdf-tools dictionary magit markdown-mode haskell-mode js2-mode
- fill-column-indicator ess base16-theme auto-complete)))
+    (company flycheck pyvenv exec-path-from-shell html-check-frag writegood-mode pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator ess base16-theme)))
  '(pdf-misc-print-programm "/usr/bin/gtklp"))
 
-(require 'auto-complete)
-(global-auto-complete-mode t)
+(add-hook 'prog-mode-hook 'global-company-mode)
 
 (require 'ido)
 (ido-mode t)
