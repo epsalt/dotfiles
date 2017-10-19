@@ -22,7 +22,7 @@
     (company flycheck pyvenv exec-path-from-shell html-check-frag writegood-mode pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator ess base16-theme)))
  '(pdf-misc-print-programm "/usr/bin/gtklp"))
 
-(add-hook 'prog-mode-hook 'global-company-mode)
+(add-hook 'prog-mode-hook 'company-mode)
 
 (require 'ido)
 (ido-mode t)
