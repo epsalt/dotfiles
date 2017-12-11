@@ -2,11 +2,16 @@
 ! Xft settings
 !-------------------------------------------------------------------------------
 
+Xft.autohint:               0
 Xft.dpi:                    96
-Xft.antialias:              false
+Xft.antialias:              true
 Xft.rgba:                   rgb
 Xft.hinting:                true
 Xft.hintstyle:              hintslight
+Xft.lcdfilter:              lcddefault
+
+! Cursor
+Xcursor.theme:              xcursor-neutral
 
 URxvt.depth:                32
 URxvt.geometry:             90x30
@@ -19,8 +24,8 @@ URxvt.lineSpace:            0
 
 ! Fonts
 URxvt.allow_bold:           false
-URxvt.font:                 xft:Ubuntu Mono:style=Regular:pixelsize=17
-URxvt.boldFont:             xft:Ubuntu Mono:style=Bold:pixelsize=17  
+URxvt.font:                 xft:DejaVu Sans Mono:style=Regular:pixelsize=13
+URxvt.boldFont:             xft:DejaVu Sans Mono:style=Bold:pixelsize=13
 
 ! Fix font space
 URxvt*letterSpace:          -1
@@ -32,7 +37,7 @@ URxvt.scrollBar:            false
 ! Perl extensions
 URxvt.perl-ext-common:      default,matcher
 URxvt.matcher.button:       1
-URxvt.urlLauncher:          firefox
+URxvt.urlLauncher:          chromium
 
 ! Cursor
 URxvt.cursorBlink:          false
