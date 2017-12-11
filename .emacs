@@ -1,7 +1,5 @@
 
 ;;  Emacs functionality settings
-
-(server-start)
 (setq current-language-environment "English")
 
  (require 'package)
