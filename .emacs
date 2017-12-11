@@ -36,7 +36,6 @@
 (require 'fill-column-indicator)
 ;; Only use fill column indicator for programming modes
 (add-hook 'prog-mode-hook 'fci-mode)
-(add-hook 'ess-mode-hook 'fci-mode)
 (setq fci-rule-color "dark slate grey")
 
 (setq-default indent-tabs-mode nil)
@@ -133,28 +132,6 @@
 
 (require 'html-check-frag)
 (add-hook 'html-mode-hook (lambda () (html-check-frag-mode 1)))
-
-;; ESS
-
-(eval-after-load 'ess-site '(ess-toggle-underscore nil))
-
-;; ESS indent styles
-(add-hook 'ess-mode-hook
-          (lambda ()
-            (ess-set-style 'C++ 'quiet)
-            (setq ess-ask-for-ess-directory nil)
-            (setq ess-first-continued-statement-offset 2)
-            (setq ess-continued-statement-offset 0)))
-
-(if (eq system-type 'gnu/linux)
-    (setq inferior-R-program-name "/usr/bin/R"))
-
-(if (eq system-type 'darwin)
-    (setq inferior-R-program-name "/usr/local/bin/R"))
-
-;; Hopefully fixes weird el-capitan bug that prevents ess from finding R
-(when (memq window-system '(mac ns))
-  (exec-path-from-shell-initialize))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
