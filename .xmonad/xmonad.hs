@@ -38,7 +38,7 @@ myFocusedBorderColor = "#000000"
 myTerminal = "urxvt"
 
 main = do
-    spawn "feh --bg-scale ~/.xmonad/hk.jpg"
+    spawn "feh --bg-scale ~/.xmonad/jp.jpg"
     xmproc <- spawnPipe "/usr/bin/xmobar /home/epsalt/.xmobarrc"
     xmonad $ defaultConfig {
       modMask = mod4Mask,
