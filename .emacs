@@ -28,6 +28,8 @@
 (add-hook 'prog-mode-hook 'company-mode)
 
 (require 'ido)
+(setq company-idle-delay 0)
+(setq company-minimum-prefix-length 1)
 (ido-mode t)
 
 (require 'mwheel)
