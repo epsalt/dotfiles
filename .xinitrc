@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
 
+[[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
+
 # startup browser
-chromium-browser &
+chromium &
 
 # startup emacs
-emacs-snapshot &
+emacs --daemon &
+emacsclient -c --no-wait &
 
 # start dropbox
 /home/epsalt/.dropbox-dist/dropboxd &
@@ -12,10 +15,10 @@ emacs-snapshot &
 # screensaver
 xautolock -time 30 -locker slock &
 
-# flux
-xflux -l 51 &
-
 # wacom tablet config
 xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput HEAD-0
+
+# set cursor style
+xsetroot -cursor_name left_ptr
 
 exec xmonad
