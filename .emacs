@@ -77,20 +77,19 @@
 (column-number-mode)
 (show-paren-mode t)
 
-(if (display-graphic-p) 
-    (load-theme 'base16-tomorrow-night t)
-  nil)
-
-;;fringe stuff
-(set-face-attribute 'fringe nil
-                    :foreground (face-foreground 'default)
-                    :background (face-background 'default))
+(defun my/load-theme (frame)
+  (select-frame frame)
+  (load-theme 'base16-tomorrow-night t))
+(if (daemonp)
+    (add-hook 'after-make-frame-functions #'my/load-theme)
+  (load-theme 'base16-tomorrow-night t))
 
 (require 'tool-bar)
 (tool-bar-mode -1)
 
 (require 'fringe)
 (fringe-mode 30)
+(set-face-attribute 'fringe nil :background nil)
 
 ;; Can't get pdf-tools to compile on MacOS
 (if (eq system-type 'gnu/linux)
@@ -138,4 +137,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(fringe ((t (:background "nil" :foreground "nil")))))
+(put 'erase-buffer 'disabled nil)
+
+; This fringe is going to be the death of me
+(if (eq system-type 'darwin)
+    (set-face-attribute 'fringe nil :background nil))
