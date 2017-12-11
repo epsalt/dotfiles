@@ -10,10 +10,10 @@
 (when (< emacs-major-version 24)
   ;; For important compatibility libraries like cl-lib
   (add-to-list 'package-archives '("gnu" . "https://elpa.gnu.org/packages/")))
+(package-initialize)
+
 (when (memq window-system '(mac ns x))
   (exec-path-from-shell-initialize))
-
-(package-initialize)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -26,10 +26,10 @@
  '(pdf-misc-print-programm "/usr/bin/gtklp"))
 
 (add-hook 'prog-mode-hook 'company-mode)
-
-(require 'ido)
 (setq company-idle-delay 0)
 (setq company-minimum-prefix-length 1)
+
+(require 'ido)
 (ido-mode t)
 
 (require 'mwheel)
@@ -41,18 +41,14 @@
 (setq fci-rule-color "dark slate grey")
 
 (setq-default indent-tabs-mode nil)
-
-;; ignore case when searching
 (setq case-fold-search t)
-
 (set-default 'truncate-lines t)
+(setq auto-save-default nil)
+(setq make-backup-files nil)
 
 ;; windmove to navigate buffers with shift
 (when (fboundp 'windmove-default-keybindings)
   (windmove-default-keybindings))
-
-(setq auto-save-default nil)
-(setq make-backup-files nil)
 
 (if (eq system-type 'darwin)
     (progn
@@ -64,13 +60,11 @@
       (setq x-super-keysym 'super)))
 
 ;; Dired (from http://ergoemacs.org/emacs/emacs_dired_tips.html)
-
 (defun dired-mode-setup ()
   (dired-hide-details-mode 1))
 (add-hook 'dired-mode-hook 'dired-mode-setup)
 
 ;; Appearence
-
 (setq initial-scratch-message nil)
 (scroll-bar-mode -1)
 (blink-cursor-mode 0)
@@ -108,6 +102,7 @@
  python-shell-interpreter-args ""
  python-shell-prompt-regexp "In \\[[0-9]+\\]: "
  python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+;; Markdown
  python-shell-completion-setup-code
    "from IPython.core.completerlib import module_completion"
  python-shell-completion-module-string-code
@@ -115,9 +110,7 @@
  python-shell-completion-string-code
  "';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
  python-shell-interpreter-args "--simple-prompt -i")
-
 ;; Markdown
-
 (autoload 'markdown-mode "markdown-mode"
    "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
@@ -127,7 +120,6 @@
 (add-hook 'markdown-mode-hook 'turn-on-auto-fill)
 
 ;; Javascript / Web
-
 (require 'js2-mode)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
