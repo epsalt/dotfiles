@@ -20,8 +20,8 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (company flycheck pyvenv exec-path-from-shell html-check-frag writegood-mode pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator ess base16-theme)))
- '(pdf-misc-print-programm "/usr/bin/gtklp"))
+    (company-jedi company flycheck pyvenv exec-path-from-shell html-check-frag writegood-mode pdf-tools dictionary magit markdown-mode haskell-mode js2-mode fill-column-indicator base16-theme)))
+ '(python-shell-interpreter "python3"))
 
 (add-hook 'prog-mode-hook 'company-mode)
 (setq company-idle-delay 0)
