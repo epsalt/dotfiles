@@ -3,4 +3,4 @@
 [push]
 	default = upstream
 [core]
-	editor = emacsclient -a=emacs-snapshot
+	editor = emacsclient -a=emacs
