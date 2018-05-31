@@ -5,12 +5,8 @@
 # startup browser
 chromium &
 
-# startup emacs
-emacs --daemon &
-emacsclient -c --no-wait &
-
-# start dropbox
-/home/epsalt/.dropbox-dist/dropboxd &
+# # startup emacs
+emacsclient -c &
 
 # screensaver
 xautolock -time 30 -locker slock &
