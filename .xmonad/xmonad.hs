@@ -39,6 +39,7 @@ myTerminal = "urxvt"
 
 main = do
     spawn "feh --bg-scale ~/.xmonad/jp.jpg"
+    spawn "xmodmap /home/epsalt/.Xmodmap"
     xmproc <- spawnPipe "xmobar /home/epsalt/.xmobarrc"
     xmonad $ defaultConfig {
       modMask = mod4Mask,
